@@ -21,27 +21,21 @@ This project demonstrates a simplified version of that:
 ## Workflow Diagram
 
 FakeTransactionGenerator Lambda
-            |
-            V
-      API Gateway
-            |
-            V
-     Validation Lambda
-            |
+      --> API Gateway
+     -->Validation Lambda
      ┌──────┴───────┐
-     |              |
+     |                 |
    SQS (Valid)    SQS (Fraud)
      |              |
-       \            /
+      \            /
         \          /
          \        /
           V      V
-       Insert Lambda (handles both queues)
-            |
+Insert Lambda (handles both queues)
      ┌──────┴───────┐
-     |              |
-  RDS Valid     RDS Fraud
-     |              |
+     |                 |
+  RDS Valid       RDS Fraud
+     |               |
    SNS Mail       SNS Mail
 
 
